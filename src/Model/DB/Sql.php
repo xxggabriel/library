@@ -52,7 +52,14 @@ class Sql
 	public function backup()
 	{
 		$env = new Config;
-		exec("mysqldump -u ".$env->getDatabase("user")." -p". $env->getDatabase("password")." ".$env->getDatabase("dbname") ."> ". $env->getSite("directory") . "/src/Model/DB/Backups/backup".date("Y-m-d").".sql");
+		exec("mysqldump --routines -u ".$env->getDatabase("user")." -p". $env->getDatabase("password")." ".$env->getDatabase("dbname") ."> ". $env->getSite("directory") . "/src/Model/DB/Backups/backup-".date("Y-m-d").".sql");
+		
+		sleep(5);
+		exec("git add ". $env->getSite("directory") . "/src/Model/DB/Backups/backup-".date("Y-m-d").".sql");
+		exec("git commit -m 'Backup do banco de dados da data'");
+		exec("git push origin master");
+		// backup-2018-12-26.sql
+		
 	}	
 
 }
