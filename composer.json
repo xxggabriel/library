@@ -1,0 +1,25 @@
+{
+    "name": "gabriel/library",
+    "type": "project",
+    "require": {
+        "slim/slim": "~2.0",
+        "rain/raintpl": "^3.1",
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Gabriel Oliveira",
+            "email": "gabrieloliveradesouza9@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "src\\Model\\",
+            "Controller\\" : "src\\Controller\\",
+            "Route\\" : "Route\\",
+            "test\\" : "Test\\",
+            "Config\\" : "Config\\",
+            "App\\" : "\\"
+        }
+    }
+}

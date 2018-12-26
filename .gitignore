@@ -1,0 +1,4 @@
+/test/
+/src/Views/cache/*
+env.php
+Config.php
